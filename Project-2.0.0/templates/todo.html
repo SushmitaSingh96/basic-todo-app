@@ -1,0 +1,16 @@
+<H1>Hi All. This is my first project in Django</H1>
+
+<ul>
+  {% for todo_item in key_all_item %}
+    <li>{{ todo_item.content }}
+        <form action = "/deleteToDo/{{todo_item.id}}/" method = "post" style="display:inline;">{% csrf_token %}
+            <input type="submit" value = "Delete">
+        </form>
+    </li>
+  {% endfor %}
+</ul>
+
+<form action = "/addToDo/" method = "post">{% csrf_token %}
+    <input type="text" name = "content">
+    <input type="submit" value="Add">
+</form>
